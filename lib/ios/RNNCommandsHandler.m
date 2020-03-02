@@ -75,6 +75,7 @@ static NSString* const setDefaultOptions	= @"setDefaultOptions";
 	
 	[vc renderTreeAndWait:[vc.resolveOptions.animations.setRoot.waitForRender getWithDefaultValue:NO] perform:^{
 		_mainWindow.rootViewController = vc;
+		[UIApplication sharedApplication].windows.firstObject.hidden=NO;
 		[_eventEmitter sendOnNavigationCommandCompletion:setRoot commandId:commandId params:@{@"layout": layout}];
 		completion() ;
 	}];
